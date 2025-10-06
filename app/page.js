@@ -5,9 +5,11 @@ import Hero from "./_components/Hero";
 import CategorySearch from "./_components/CategorySearch";
 import DoctorList from "./_components/DoctorList";
 import GlobalAPI from "./_utils/GlobalApi";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import InstructionAppointment from "./_components/InstructionAppointment";
 
 export default function Home() {
+  const contentRef = useRef();
   const [doctorList, setDoctorList] = useState([]);
   useEffect(() => {
     getDoctorList();
@@ -21,9 +23,10 @@ export default function Home() {
   }
   return (
     <div>
-      <Hero />
+      <Hero scrollTargetRef={contentRef} />
       <CategorySearch />
-      <DoctorList doctorList={doctorList} />
+      <InstructionAppointment scrollTargetRef={contentRef} />
+      <DoctorList doctorList={doctorList} ref={contentRef} />
     </div>
   );
 }

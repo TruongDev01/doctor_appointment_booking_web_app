@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/popover"
 
 export default function Header() {
+
     const Menu = [
         {
             id: 1,
@@ -34,10 +35,11 @@ export default function Header() {
     useEffect(() => {
         console.log(user);
     }, [user])
+
     return (
         <div className='flex justify-between items-center p-4 shadow-sm' >
             <div className='flex items-center p-4 gap-10' >
-                <Image src="/logo.svg" alt="Logo" width={180} height={80} />
+                <Link href="/" className='cursor-pointer'><Image src="/logo.svg" alt="Logo" width={180} height={80} /></Link>
                 <ul className="md:flex gap-8 hidden">
                     {Menu.map(item => (
                         <Link href={item.path} key={item.id}>
@@ -61,8 +63,8 @@ export default function Header() {
                     </PopoverTrigger>
                     <PopoverContent className="w-44">
                         <ul className='flex flex-col gap-2'>
-                            <li className='cursor-pointer hover:bg-slate-100 p-2 rounded-md '>Profile</li>
-                            <li className='cursor-pointer hover:bg-slate-100 p-2 rounded-md '>My Booking</li>
+                            <li className='cursor-pointer hover:bg-slate-100 p-2 rounded-md '><Link href={'/profile/'}>My Profile</Link></li>
+                            <li className='cursor-pointer hover:bg-slate-100 p-2 rounded-md '>My booking</li>
                             <li className='cursor-pointer hover:bg-slate-100 p-2 rounded-md '><LogoutLink>Logout</LogoutLink></li>
                         </ul>
                     </PopoverContent>

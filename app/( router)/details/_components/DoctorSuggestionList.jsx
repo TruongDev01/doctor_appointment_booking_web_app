@@ -15,7 +15,7 @@ export default function DoctorSuggestionList() {
         })
     }
     return (
-        <div className='p-4 border-[1px] mt-5 md:ml-5'>
+        <div className='p-4 border-[1px] md:ml-5 '>
             <h2 className='mb-3 font-bold'>Suggestions</h2>
 
             {doctorList.map((doctor, index) => (

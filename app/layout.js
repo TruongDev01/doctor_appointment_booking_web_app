@@ -15,13 +15,18 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={outfit.className}>
-        <div className="md:px-20">
-          <Header />
-        </div>
-        {children}
-        <Toaster />
-        <div>
-          {/*<Footer />*/}
+        <div className="flex flex-col min-h-screen">
+          <div className="md:px-20 ">
+            <Header />
+          </div>
+          <div className="flex-grow">
+            {children}
+          </div>
+          <Toaster />
+          <div>
+            <Footer />
+          </div>
+
         </div>
       </body>
     </html>
